@@ -30,7 +30,7 @@ function Footer() {
 
       <div>
         <ul className='flex justify-center md:flex justify-end gap-10 mt-8'>
-          {/* <li><Image src={ins} alt="insta"/></li> */}
+          
           <li><Image src={fb} alt="fb" /></li>
           <li><Image src={pri} alt="printers" /></li>
           <li><Image src={twitter} alt="twitter" /></li>
