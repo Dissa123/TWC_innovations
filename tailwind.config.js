@@ -1,12 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './components/*.{tsx,js,jsx,ts,jpg}',
-    './images/desktop/image-hero.jpg',
+    './components/*.{tsx,js,jsx,ts}',
     './pages/*.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
   plugins: [],
 }
