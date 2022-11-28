@@ -10,15 +10,15 @@ import ipb from '../images/desktop/image-pocket-borealis.jpg';
 import ist from '../images/desktop/image-soccer-team.jpg';
 function Cat() {
   return (
-    <div>
+    <div className=''>
       <div className=''>
-        <div className='text-center mt-20 flex justify-around'>
+        <div className='text-center mt-20 flex justify-around mt-60'>
           <h1 className='text-2xl'>OUR CREATIONS</h1>
           <button className='rounded-none border-2 border-neutral-900 p-1 px-3'>SEE MORE</button>
         </div>
       </div>
 
-      <div className='md:grid grid-cols-3'>
+      <div className='md:same_width md:grid md:grid-cols-3'>
         <div>
           <div className='relative my-10'>
             <div className='mx-5'>

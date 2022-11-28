@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
 
-import Welcome from '../components/Welcome';
-import Desc from '../components/Desc';
-import Cat from '../components/Cat';
+import Hero from '../components/Hero';
+import Desc from '../components/VRsection';
+import Cat from '../components/OurCreation';
 import Footer from '../components/Footer';
 
 const Home: NextPage = () => {
   return (
     <div className="">
-      <Welcome/>
+      <Hero/>
       <Desc/>
       <Cat/>
       <Footer/>

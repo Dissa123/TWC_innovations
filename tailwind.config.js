@@ -1,3 +1,5 @@
+// const { url } = require('inspector');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -5,7 +7,14 @@ module.exports = {
     './pages/*.tsx',
   ],
   theme: {
-    extend: {}
+    extend: {
+      backgroundImage:{
+        'full_img': "url('/image/hero.jpg')",
+      },
+      brightness:{
+        25:'.70',
+      }
+    }
   },
   plugins: [],
 }

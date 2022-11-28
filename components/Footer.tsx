@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import logo from '../images/logo.svg';
-
 import fb from '../images/facebook.svg';
 import pri from '../images/pinterest.svg';
 import twitter from '../images/twitter.svg';
-// import ins from '../image/instagram.svg';
 
 function Footer() {
   return (

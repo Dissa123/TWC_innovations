@@ -1,56 +1,88 @@
 import React from 'react'
-
+import Image from 'next/image';
+import Logo from '../images/logo.svg'
+import Link from 'next/link';
+import {useState , useEffect} from 'react'
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 function Navbar() {
+  const [nav, setNav] = useState(false);
+  const [color,setColor] =useState('transparent');
+  const [textcolor,setTextColor] =useState('white');
+
+  const handleNav =() =>{
+    setNav(!nav)
+  };
+  
+  // When I Scroll 
+useEffect(()=>{
+  const changeColor = ()=>{
+    if(window.scrollY >=90){
+      setColor('#ffffff')
+      setTextColor('#00000')
+    }else{
+      setColor('transparent')
+      setTextColor('#ffffff')
+    }
+  };
+  window.addEventListener('scroll', changeColor)
+},[]);
+
+
   return (
-//     <div className='text-white'>
-//     <div className="flex justify-between items-center md:my-10 absolute text-2xl top-5 left-5 mx-40 ">
-//       <h3 className='absolute right-10 top-0 md:left-3'>loopstudios</h3>
-//       <div className='px-4 py-2 content-end cursor-pointer md:hidden'>
-//         {/* burgher icon */}
-//         <svg className="absolute w-6 left-36" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-//       </div>
-//     </div>
+    <div style={{backgroundColor:`${color}`}} className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
+      {/* Logo */}
+      <div className="max-w-[1240px] m-auto flex justify-between item-center p-4 text-white mt-10">
+        <Link href='/'>
+          <Image src={Logo} alt={''} className="" style={{color:`${textcolor}`}}></Image>
+        </Link>
+        {/* Nav bar text */}
+        <ul className='hidden sm:flex'>
+          <li className='p-4 font-bold'>
+            <Link href='/'> About</Link>
+          </li>
+          <li className='p-4 font-bold'>
+            <Link href='/'> About</Link>
+          </li>
+          <li className='p-4 font-bold'>
+            <Link href='/'> Careers</Link>
+          </li>
+          <li className='p-4 font-bold'>
+            <Link href='/'> Products</Link>
+          </li>
+          <li className='p-4 font-bold'>
+            <Link href='/'> Support</Link>
+          </li>
+        </ul>
 
-//     <ul className='md:flex absolute text-sm top-5 right-5 gap-2 mr-40 my-10 hidden'>
-//       <li><a href="#"><span>About</span></a></li>
-//       <li><a href="#"><span>Career</span></a></li>
-//       <li><a href="#"><span>Events</span></a></li>
-//       <li><a href="#"><span>Products</span></a></li>
-//       <li><a href="#"><span>Support</span></a></li>
-//     </ul>
-//   </div>
+        {/* Mobile Buttons */}
+        <div onClick={handleNav} className='block sm:hidden z-10'>
+          {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} style={{color:`${textcolor}`}}/>}
+        </div>
 
-<nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5">
-  <div className="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="https://flowbite.com/" className="flex items-center">
-        <img src="https://flowbite.com/docs/images/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-      <span className="sr-only">Open main menu</span>
-      <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
-    <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-white  md:p-0 dark:text-white" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="#" className="text-white">About</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-        </li>
-      </ul>
+        {/* Mobile Menu */}
+        <div className={nav ? 
+          "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen text-center ease-in duration-300 bg-black" : 
+          "sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen text-center ease-in duration-300 bg-black"} >
+        <ul className=''>
+          <li className='p-4 hover:text-gray-500'>
+            <Link href='/'> About</Link>
+          </li>
+          <li className='p-4 hover:text-gray-500'>
+            <Link href='/'> About</Link>
+          </li>
+          <li className='p-4 hover:text-gray-500'>
+            <Link href='/'> Careers</Link>
+          </li>
+          <li className='p-4 hover:text-gray-500'>
+            <Link href='/'> Products</Link>
+          </li>
+          <li className='p-4 hover:text-gray-500'>
+            <Link href='/'> Support</Link>
+          </li>
+        </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
   )
 }
 

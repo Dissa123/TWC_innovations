@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-css{
-    /* background: url("../components/image-hero.jpg"); */
+*{
+    margin: 0;
+    bottom: 0;
+}
+.same_width{
+    @apply max-w-[1240px] m-auto flex  p-4 text-white ;
 }
